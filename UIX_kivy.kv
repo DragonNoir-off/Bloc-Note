@@ -1,0 +1,61 @@
+Screen:
+    MDLabel:
+        id: Label_MainFrame
+        pos_hint: {'top': 0.98, 'center_x': 0.15}
+        adaptive_size: True
+        text: "Welcome back"
+        halign: "center"
+        font_size: "30sp"
+
+    MDRaisedButton:
+        id: NewNote_MainFrame
+        text: "Ajouter une Note"
+        size_hint_y: None
+        pos_hint: {'top': 0.98, 'center_x': 0.85}
+        height: "50dp"
+        on_release: app.Create_NewNote()
+
+    Widget:
+        id: Separator_MainFrame
+        size_hint_y: None
+        height: 2  # Hauteur de la ligne de séparation
+        canvas:
+            Color:
+                rgba: 0, 0, 0, 1
+            Line:
+                points: [0,540,self.width,540]
+                width: 2
+
+    ScrollView:
+        id: List_MainFrame
+        adaptive_height: True
+        pos_hint: {'top': 0.9, 'center_x': 0.5}
+        MDList:
+            padding: "20dp"
+            id: File_List
+
+    MDTextField:
+        id: TextField_InputFrame
+        multiline: True
+        size_hint_x: 1
+        size_hint_y: 1
+        pos_hint: {'top': 1, 'center_x': 0.52}
+        opacity: 0
+
+    MDRaisedButton:
+        id: SaveNote_InputFrame
+        text: "Sauvgarder la note"
+        size_hint_y: None
+        pos_hint: {'top': 0.1, 'center_x': 0.55}
+        height: "50dp"
+        on_release: app.File_Selected__Save_NewText()
+        opacity: 0
+
+    MDRaisedButton:
+        id: Exit_InputFrame
+        text: "Annuler les modifications sur la note"
+        size_hint_y: None
+        pos_hint: {'top': 0.1, 'center_x': 0.82}
+        height: "50dp"
+        on_release: app.File_Selected__Exit_InputFrame()
+        opacity: 0
